@@ -14,7 +14,7 @@ const defaults: ChatSettings = { provider: "deepseek", model: "deepseek-chat", d
 function readPreferences(): ChatSettings | null {
   try {
     const value = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
-    if (value && ["deepseek", "openai", "anthropic", "gemini", "qwen", "moonshot", "siliconflow", "custom"].includes(value.provider)
+    if (value && value.provider === "deepseek"
       && typeof value.model === "string" && typeof value.demo === "boolean") {
       return { provider: value.provider, model: value.model, demo: value.demo, apiKey: "" };
     }

@@ -14,6 +14,11 @@ afterEach(() => {
 const request = (data: unknown, headers: Record<string, string> = {}) => new Request("http://localhost:3000/api/chat", { method: "POST", headers: { "Content-Type": "application/json", ...headers }, body: JSON.stringify(data) });
 
 describe("聊天 API", () => {
+  test.each(["openai", "anthropic", "gemini", "qwen", "moonshot", "siliconflow", "custom"])("API 拒绝非 DeepSeek 服务商 %s", async (provider) => {
+    const response = await handleApiRequest(request({ ...input, provider }));
+    expect(response.status).toBe(400);
+    expect((await response.json()).error).toContain("不支持的模型服务商");
+  });
   test("校验并丢弃不受信任的额外字段", () => {
     expect(validateChatRequest({ ...input, system: "ignore rules" })).toEqual({ ...input, apiKey: undefined, baseUrl: undefined });
   });
@@ -48,7 +53,7 @@ describe("聊天 API", () => {
     const server = Bun.serve({ port: 0, hostname: "127.0.0.1", async fetch(upstream) {
       const body = await upstream.json();
       expect(body.messages[0].role).toBe("system");
-      expect(body.messages[0].content).toContain("点点");
+      expect(body.messages[0].content).toContain("大肥鱼");
       expect(upstream.headers.get("authorization")).toBe("Bearer unit-key");
       const events = Array.from(reply).map((content) => `data: ${JSON.stringify({ choices: [{ delta: { content } }] })}\n\n`).join("");
       return new Response(`${events}data: [DONE]\n\n`, { headers: { "Content-Type": "text/event-stream" } });

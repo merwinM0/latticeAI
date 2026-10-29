@@ -6,13 +6,15 @@
 
 Lattice AI 把聊天窗口变成一个安静的陪伴空间：由原画构成的粒子角色会眨眼、随回复轻声开口，文字在身旁浮现。没有聊天列表，也没有不断堆叠的消息气泡，只有角色、输入框和当下的对话。
 
+> **仅支持 DeepSeek API**：真实模型模式需要 DeepSeek API 密钥，不接受其他服务商的 API。
+
 ![Lattice AI 聊天界面](./show.png)
 
 ## 特色
 
 - **会动的粒子角色**：保留原画色彩与轮廓，用二维网格驱动眨眼和说话动作；支持 WebGL，无法使用时回退到 Canvas 2D。
 - **轻量的对话体验**：回复分成短消息逐条浮现，停留后淡出；悬停或键盘聚焦可以暂停消失。文字消失后，当前对话上下文仍然保留。
-- **自由选择模型**：支持 DeepSeek、OpenAI、Claude、Gemini、通义千问、Kimi、硅基流动，以及 OpenAI 兼容接口和本地 Ollama。
+- **连接 DeepSeek**：支持 `deepseek-chat` 和 `deepseek-reasoner`，在设置中选择模型。
 - **无需密钥也能体验**：内置明确标注的本地演示模式，不调用外部 AI 服务。
 - **照顾不同使用方式**：适配手机和桌面，支持键盘操作、中文输入法、减少动态效果及屏幕阅读器提示。
 
@@ -49,34 +51,15 @@ DEEPSEEK_API_KEY=你的密钥
 
 ## 模型配置
 
-只需配置你要使用的服务商。
+仅接受 DeepSeek 服务商，不支持其他服务商或本地 Ollama。
 
-| 服务商 | 密钥环境变量 | 示例模型 |
-| --- | --- | --- |
-| DeepSeek | `DEEPSEEK_API_KEY` | `deepseek-chat` / `deepseek-reasoner` |
-| OpenAI | `OPENAI_API_KEY` | `gpt-4.1-mini` / `gpt-4.1` |
-| Claude | `ANTHROPIC_API_KEY` | `claude-sonnet-4-20250514` |
-| Gemini | `GEMINI_API_KEY` | `gemini-2.5-flash` / `gemini-2.5-pro` |
-| 通义千问 | `QWEN_API_KEY` | `qwen-plus` / `qwen-turbo` |
-| Kimi | `MOONSHOT_API_KEY` | `moonshot-v1-8k` / `moonshot-v1-32k` |
-| 硅基流动 | `SILICONFLOW_API_KEY` | `deepseek-ai/DeepSeek-V3` |
-| 自定义接口 | `CUSTOM_API_KEY` | 按接口填写 |
+| 环境变量 | 用途 |
+| --- | --- |
+| `DEEPSEEK_API_KEY` | DeepSeek API 密钥 |
+| `DEEPSEEK_MODEL` | 首选模型，可选，默认 `deepseek-chat` |
+| `DEEPSEEK_BASE_URL` | 服务端接口基础地址，可选，默认 `https://api.deepseek.com` |
 
-各服务商还支持 `*_BASE_URL` 和 `*_MODEL`，分别用于覆盖接口基础地址和设置首选模型。基础地址不要包含 `/chat/completions`、`/messages` 等具体端点；模型也可以在界面中手动输入。实际模型名称、可用性与费用以服务商为准。
-
-Claude 和 Gemini 使用原生协议，其他服务商使用 OpenAI Chat Completions 兼容协议。完整配置示例见 [`.env.example`](.env.example)。
-
-### 使用本地 Ollama
-
-先在 [Ollama](https://ollama.com) 中下载并启动模型，再配置：
-
-```dotenv
-CUSTOM_BASE_URL=http://127.0.0.1:11434/v1
-CUSTOM_API_KEY=ollama
-CUSTOM_MODEL=qwen2.5:7b
-```
-
-重启服务后，在设置中选择「自定义接口」。上游地址由服务端配置，不接受浏览器任意指定。
+支持 `deepseek-chat` 和 `deepseek-reasoner`。实际模型可用性与费用以 DeepSeek 为准。基础地址不要包含 `/chat/completions`，且只能由服务端配置。完整示例见 [`.env.example`](.env.example)。
 
 ## 隐私与部署
 

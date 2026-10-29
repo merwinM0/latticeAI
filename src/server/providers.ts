@@ -12,13 +12,6 @@ interface ProviderDefinition {
 
 export const PROVIDERS: ProviderDefinition[] = [
   { id: "deepseek", name: "DeepSeek", description: "深度求索", models: ["deepseek-chat", "deepseek-reasoner"], protocol: "openai", baseUrl: "https://api.deepseek.com", envPrefix: "DEEPSEEK" },
-  { id: "openai", name: "OpenAI", description: "GPT 系列", models: ["gpt-4.1-mini", "gpt-4.1", "gpt-4o"], protocol: "openai", baseUrl: "https://api.openai.com/v1", envPrefix: "OPENAI" },
-  { id: "anthropic", name: "Claude", description: "Anthropic", models: ["claude-sonnet-4-20250514", "claude-3-5-haiku-20241022"], protocol: "anthropic", baseUrl: "https://api.anthropic.com/v1", envPrefix: "ANTHROPIC" },
-  { id: "gemini", name: "Gemini", description: "Google", models: ["gemini-2.5-flash", "gemini-2.5-pro"], protocol: "gemini", baseUrl: "https://generativelanguage.googleapis.com/v1beta", envPrefix: "GEMINI" },
-  { id: "qwen", name: "通义千问", description: "阿里云百炼", models: ["qwen-plus", "qwen-turbo", "qwen-max"], protocol: "openai", baseUrl: "https://dashscope.aliyuncs.com/compatible-mode/v1", envPrefix: "QWEN" },
-  { id: "moonshot", name: "Kimi", description: "月之暗面", models: ["moonshot-v1-8k", "moonshot-v1-32k"], protocol: "openai", baseUrl: "https://api.moonshot.cn/v1", envPrefix: "MOONSHOT" },
-  { id: "siliconflow", name: "硅基流动", description: "开源模型平台", models: ["deepseek-ai/DeepSeek-V3", "Qwen/Qwen2.5-72B-Instruct"], protocol: "openai", baseUrl: "https://api.siliconflow.cn/v1", envPrefix: "SILICONFLOW" },
-  { id: "custom", name: "自定义接口", description: "OpenAI 兼容协议", models: [], protocol: "openai", baseUrl: "", envPrefix: "CUSTOM" },
 ];
 
 export class ApiError extends Error {
@@ -45,16 +38,16 @@ export function listProviders(): ProviderInfo[] {
 }
 
 // Only administrator-controlled environment variables may change upstream hosts.
-// Browser-supplied custom hosts must match CUSTOM_BASE_URL exactly (SSRF protection).
+// Browser-supplied hosts must match DEEPSEEK_BASE_URL exactly (SSRF protection).
 export function resolveConnection(id: ProviderId, suppliedKey?: string, suppliedBaseUrl?: string) {
   const provider = getProvider(id);
   const key = suppliedKey?.trim() || process.env[`${provider.envPrefix}_API_KEY`]?.trim();
   if (!key) throw new ApiError(400, `请先配置 ${provider.name} 的 API Key，或切换到演示模式。`);
   if (key.length > 4096 || /[\r\n]/.test(key)) throw new ApiError(400, "API Key 格式不正确。");
   const configuredUrl = process.env[`${provider.envPrefix}_BASE_URL`]?.trim() || provider.baseUrl;
-  if (!configuredUrl) throw new ApiError(400, "请先在 .env 中配置 CUSTOM_BASE_URL，再使用自定义接口。");
+  if (!configuredUrl) throw new ApiError(400, "请先在 .env 中配置 DEEPSEEK_BASE_URL。");
   if (suppliedBaseUrl && suppliedBaseUrl.replace(/\/+$/, "") !== configuredUrl.replace(/\/+$/, "")) {
-    throw new ApiError(400, "接口地址需要由服务端 .env 的 CUSTOM_BASE_URL 配置。");
+    throw new ApiError(400, "接口地址需要由服务端 .env 的 DEEPSEEK_BASE_URL 配置。");
   }
   let url: URL;
   try { url = new URL(configuredUrl); } catch { throw new ApiError(400, "服务端接口地址无效。"); }

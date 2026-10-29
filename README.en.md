@@ -6,13 +6,15 @@
 
 Lattice AI turns a chat window into a quiet space for conversation. A character made from illustrated particles blinks and moves its mouth as replies appear nearby. There is no conversation sidebar or growing wall of chat bubbles—just the character, an input field, and the conversation at hand.
 
+> **DeepSeek API only**: Real-model mode requires a DeepSeek API key. APIs from other providers are not accepted.
+
 ![Lattice AI chat interface](./show.png)
 
 ## Features
 
 - **An animated particle character**: Preserves the original artwork's colors and silhouette, with 2D mesh-driven blinking and speaking motions. Uses WebGL with a Canvas 2D fallback.
 - **A lighter way to chat**: Short replies appear one at a time and fade after a while. Hover or focus a message to keep it visible. Conversation context remains available after the text fades.
-- **Your choice of models**: Supports DeepSeek, OpenAI, Claude, Gemini, Qwen, Kimi, SiliconFlow, OpenAI-compatible endpoints, and local Ollama models.
+- **Connect to DeepSeek**: Choose between `deepseek-chat` and `deepseek-reasoner` in settings.
 - **Try it without a key**: A clearly labeled local demo works without contacting an AI provider.
 - **Built for different ways of using the app**: Responsive layouts, keyboard navigation, Chinese IME support, reduced-motion preferences, and screen-reader announcements.
 
@@ -49,34 +51,15 @@ You can also enter a temporary key in settings. It stays in page memory and is c
 
 ## Model configuration
 
-Configure only the providers you want to use.
+Only DeepSeek is accepted. Other providers and local Ollama are not supported.
 
-| Provider | API key variable | Example models |
-| --- | --- | --- |
-| DeepSeek | `DEEPSEEK_API_KEY` | `deepseek-chat` / `deepseek-reasoner` |
-| OpenAI | `OPENAI_API_KEY` | `gpt-4.1-mini` / `gpt-4.1` |
-| Claude | `ANTHROPIC_API_KEY` | `claude-sonnet-4-20250514` |
-| Gemini | `GEMINI_API_KEY` | `gemini-2.5-flash` / `gemini-2.5-pro` |
-| Qwen | `QWEN_API_KEY` | `qwen-plus` / `qwen-turbo` |
-| Kimi | `MOONSHOT_API_KEY` | `moonshot-v1-8k` / `moonshot-v1-32k` |
-| SiliconFlow | `SILICONFLOW_API_KEY` | `deepseek-ai/DeepSeek-V3` |
-| Custom endpoint | `CUSTOM_API_KEY` | Depends on your endpoint |
+| Variable | Purpose |
+| --- | --- |
+| `DEEPSEEK_API_KEY` | DeepSeek API key |
+| `DEEPSEEK_MODEL` | Optional preferred model; defaults to `deepseek-chat` |
+| `DEEPSEEK_BASE_URL` | Optional server-side base URL; defaults to `https://api.deepseek.com` |
 
-Each provider also supports `*_BASE_URL` and `*_MODEL` to override its base URL and preferred model. Do not include endpoint paths such as `/chat/completions` or `/messages` in the base URL. You can also enter model names in the interface. Names, availability, and pricing depend on your provider.
-
-Claude and Gemini use their native protocols; other providers use the OpenAI Chat Completions-compatible protocol. See [`.env.example`](.env.example) for configuration examples.
-
-### Local Ollama
-
-Download and start a model with [Ollama](https://ollama.com), then configure:
-
-```dotenv
-CUSTOM_BASE_URL=http://127.0.0.1:11434/v1
-CUSTOM_API_KEY=ollama
-CUSTOM_MODEL=qwen2.5:7b
-```
-
-Restart the server and select the custom provider in settings. Upstream URLs are configured on the server, not supplied arbitrarily by the browser.
+Supports `deepseek-chat` and `deepseek-reasoner`. Availability and pricing depend on DeepSeek. Do not include `/chat/completions` in the base URL; this address can only be configured on the server. See [`.env.example`](.env.example).
 
 ## Privacy and deployment
 
