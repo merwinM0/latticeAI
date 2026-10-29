@@ -1,0 +1,54 @@
+# dependencies (bun install)
+node_modules
+
+# optional Python asset-generation environment
+.venv
+__pycache__
+*.pyc
+
+# images stay local; do not commit image assets
+*.[pP][nN][gG]
+*.[jJ][pP][gG]
+*.[jJ][pP][eE][gG]
+*.[gG][iI][fF]
+*.[wW][eE][bB][pP]
+*.[sS][vV][gG]
+*.[bB][mM][pP]
+*.[iI][cC][oO]
+*.[aA][vV][iI][fF]
+*.[tT][iI][fF]
+*.[tT][iI][fF][fF]
+
+# output
+out
+dist
+*.tgz
+
+# browser test artifacts
+test-results
+playwright-report
+
+# code coverage
+coverage
+*.lcov
+
+# logs
+logs
+_.log
+report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
+
+# dotenv environment variable files
+.env
+.env.*
+!.env.example
+
+# caches
+.eslintcache
+.cache
+*.tsbuildinfo
+
+# IntelliJ based IDEs
+.idea
+
+# Finder (MacOS) folder config
+.DS_Store

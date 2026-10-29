@@ -1,0 +1,368 @@
+{
+  "version": 3,
+  "width": 1240,
+  "height": 1269,
+  "count": 58854,
+  "bodyCount": 56715,
+  "featureCount": 2139,
+  "frameCount": 7,
+  "vertexCount": 2571,
+  "triangleCount": 3606,
+  "atlasWidth": 512,
+  "atlasHeight": 512,
+  "layers": [
+    {
+      "id": 1,
+      "name": "left-eye-window",
+      "region": 1,
+      "kind": 0,
+      "role": "window-left",
+      "deformation": "native-strip",
+      "sourceFrame": 0,
+      "vertexStart": 0,
+      "vertexCount": 325,
+      "triangleStart": 0,
+      "triangleCount": 512,
+      "atlas": {
+        "x": 1,
+        "y": 1,
+        "width": 120,
+        "height": 110,
+        "sourceX": 340,
+        "sourceY": 543
+      }
+    },
+    {
+      "id": 2,
+      "name": "right-eye-window",
+      "region": 2,
+      "kind": 0,
+      "role": "window-right",
+      "deformation": "native-strip",
+      "sourceFrame": 0,
+      "vertexStart": 325,
+      "vertexCount": 340,
+      "triangleStart": 512,
+      "triangleCount": 536,
+      "atlas": {
+        "x": 123,
+        "y": 1,
+        "width": 126,
+        "height": 113,
+        "sourceX": 589,
+        "sourceY": 524
+      }
+    },
+    {
+      "id": 3,
+      "name": "mouth-window",
+      "region": 3,
+      "kind": 0,
+      "role": "window-mouth",
+      "deformation": "native-strip",
+      "sourceFrame": 1,
+      "vertexStart": 665,
+      "vertexCount": 170,
+      "triangleStart": 1048,
+      "triangleCount": 264,
+      "atlas": {
+        "x": 251,
+        "y": 1,
+        "width": 65,
+        "height": 43,
+        "sourceX": 493,
+        "sourceY": 660
+      }
+    },
+    {
+      "id": 4,
+      "name": "left-eye-surface",
+      "region": 1,
+      "kind": 1,
+      "role": "eye-left",
+      "deformation": "native-strip",
+      "sourceFrame": 0,
+      "vertexStart": 835,
+      "vertexCount": 130,
+      "triangleStart": 1312,
+      "triangleCount": 128,
+      "atlas": {
+        "x": 1,
+        "y": 1,
+        "width": 120,
+        "height": 110,
+        "sourceX": 340,
+        "sourceY": 543
+      }
+    },
+    {
+      "id": 5,
+      "name": "right-eye-surface",
+      "region": 2,
+      "kind": 1,
+      "role": "eye-right",
+      "deformation": "native-strip",
+      "sourceFrame": 0,
+      "vertexStart": 965,
+      "vertexCount": 136,
+      "triangleStart": 1440,
+      "triangleCount": 134,
+      "atlas": {
+        "x": 123,
+        "y": 1,
+        "width": 126,
+        "height": 113,
+        "sourceX": 589,
+        "sourceY": 524
+      }
+    },
+    {
+      "id": 6,
+      "name": "mouth-inside",
+      "region": 3,
+      "kind": 7,
+      "role": "mouth",
+      "deformation": "native-strip",
+      "sourceFrame": 1,
+      "vertexStart": 1101,
+      "vertexCount": 170,
+      "triangleStart": 1574,
+      "triangleCount": 264,
+      "atlas": {
+        "x": 251,
+        "y": 1,
+        "width": 65,
+        "height": 43,
+        "sourceX": 493,
+        "sourceY": 660
+      }
+    },
+    {
+      "id": 7,
+      "name": "left-eye-lash",
+      "region": 1,
+      "kind": 3,
+      "role": "paint",
+      "deformation": "lid-cage",
+      "sourceFrame": 0,
+      "vertexStart": 1271,
+      "vertexCount": 324,
+      "triangleStart": 1838,
+      "triangleCount": 480,
+      "atlas": {
+        "x": 318,
+        "y": 1,
+        "width": 136,
+        "height": 145,
+        "sourceX": 313,
+        "sourceY": 509
+      }
+    },
+    {
+      "id": 8,
+      "name": "left-eye-crease",
+      "region": 1,
+      "kind": 3,
+      "role": "paint",
+      "deformation": "native-strip",
+      "sourceFrame": 0,
+      "vertexStart": 1595,
+      "vertexCount": 39,
+      "triangleStart": 2318,
+      "triangleCount": 48,
+      "atlas": {
+        "x": 456,
+        "y": 1,
+        "width": 25,
+        "height": 11,
+        "sourceX": 393,
+        "sourceY": 514
+      }
+    },
+    {
+      "id": 9,
+      "name": "right-eye-lash",
+      "region": 2,
+      "kind": 3,
+      "role": "paint",
+      "deformation": "lid-cage",
+      "sourceFrame": 0,
+      "vertexStart": 1634,
+      "vertexCount": 356,
+      "triangleStart": 2366,
+      "triangleCount": 528,
+      "atlas": {
+        "x": 1,
+        "y": 148,
+        "width": 155,
+        "height": 141,
+        "sourceX": 586,
+        "sourceY": 497
+      }
+    },
+    {
+      "id": 10,
+      "name": "right-eye-crease",
+      "region": 2,
+      "kind": 3,
+      "role": "paint",
+      "deformation": "native-strip",
+      "sourceFrame": 0,
+      "vertexStart": 1990,
+      "vertexCount": 75,
+      "triangleStart": 2894,
+      "triangleCount": 96,
+      "atlas": {
+        "x": 158,
+        "y": 148,
+        "width": 48,
+        "height": 28,
+        "sourceX": 586,
+        "sourceY": 496
+      }
+    },
+    {
+      "id": 11,
+      "name": "upper-lip",
+      "region": 3,
+      "kind": 5,
+      "role": "paint",
+      "deformation": "native-strip",
+      "sourceFrame": 0,
+      "vertexStart": 2065,
+      "vertexCount": 70,
+      "triangleStart": 2990,
+      "triangleCount": 68,
+      "atlas": {
+        "x": 208,
+        "y": 148,
+        "width": 71,
+        "height": 22,
+        "sourceX": 490,
+        "sourceY": 659
+      }
+    },
+    {
+      "id": 12,
+      "name": "lower-lip",
+      "region": 3,
+      "kind": 6,
+      "role": "paint",
+      "deformation": "native-strip",
+      "sourceFrame": 0,
+      "vertexStart": 2135,
+      "vertexCount": 70,
+      "triangleStart": 3058,
+      "triangleCount": 68,
+      "atlas": {
+        "x": 281,
+        "y": 148,
+        "width": 71,
+        "height": 21,
+        "sourceX": 490,
+        "sourceY": 661
+      }
+    },
+    {
+      "id": 13,
+      "name": "left-brow",
+      "region": 4,
+      "kind": 8,
+      "role": "paint",
+      "deformation": "native-strip",
+      "sourceFrame": 0,
+      "vertexStart": 2205,
+      "vertexCount": 171,
+      "triangleStart": 3126,
+      "triangleCount": 224,
+      "atlas": {
+        "x": 354,
+        "y": 148,
+        "width": 102,
+        "height": 47,
+        "sourceX": 321,
+        "sourceY": 437
+      }
+    },
+    {
+      "id": 14,
+      "name": "right-brow",
+      "region": 5,
+      "kind": 8,
+      "role": "paint",
+      "deformation": "native-strip",
+      "sourceFrame": 0,
+      "vertexStart": 2376,
+      "vertexCount": 195,
+      "triangleStart": 3350,
+      "triangleCount": 256,
+      "atlas": {
+        "x": 1,
+        "y": 291,
+        "width": 118,
+        "height": 37,
+        "sourceX": 580,
+        "sourceY": 420
+      }
+    }
+  ],
+  "bytes": 2357432,
+  "sha256": "6e8b2bbb4485fb0817e3625cee948e7805e12a7f263aa06d9996410e81e8a26d",
+  "pillowVersion": "12.3.0",
+  "configSha256": "2d26289d41c2b06a8479619c7a9e3d77c5eb0d45f7a593f248b64ce0fad5130c",
+  "generators": {
+    "build-character.py": "4cf2c87e587d60a6eef7c3efeb45e9200e06be2da94b7248a8205ebc21847eb5",
+    "native_layers.py": "edf652caabdfe7f5893c1bd77215665c092b8f7a108a031b7709d4e0a9cbfaf0",
+    "mesh_binding.py": "2275d9734e0841305a76bbf9561b9debf2cc6ea886ed471de065169ac88166a6",
+    "character_geometry.py": "a487f858ff403887fcaf70ae329ec348e6d21a9af6fb04b52dedc7862ecefd61",
+    "requirements.txt": "41b54a6fb2918667ca47a61d73b522629d84490f3d78f0f20b21135faba10d35"
+  },
+  "frames": [
+    {
+      "id": "rest",
+      "file": "6_大肥鱼的温柔微笑.png",
+      "sha256": "b1d354e7aa6fd259a51546d89080aa3d02ca107ea85116281afa88a35a6a8b1d"
+    },
+    {
+      "id": "soft",
+      "file": "2_大肥鱼轻声说话动画帧-1.png",
+      "sha256": "c50d7ed70746df84232f02bc147acc32624eef28f07f41e39c019ca2e36fdd19"
+    },
+    {
+      "id": "open",
+      "file": "3_大肥鱼张嘴说话动画帧-2.png",
+      "sha256": "8a237a92b28db2db33c16a78e882fc771a5ab1a63b904efdaeda6a787040cf4a"
+    },
+    {
+      "id": "round",
+      "file": "4_大肥鱼圆嘴说话动画帧-3.png",
+      "sha256": "4c780d4b9a8b13f7d0eecbd737d3a126cacb0f6552f54a42c0019f202e2be374"
+    },
+    {
+      "id": "sad",
+      "file": "5_忧伤的大肥鱼.png",
+      "sha256": "827ebd071c7ba1a34c06cf12401ff9675136dd3b57fbec56ae931da8ca23b167"
+    },
+    {
+      "id": "happy",
+      "file": "1_大肥鱼全身像.png",
+      "sha256": "8e7461f455615c9b31747e37b6796833a467386ca891626f684a5b07a85afff7"
+    },
+    {
+      "id": "blink",
+      "file": "7_大肥鱼眨眼.png",
+      "sha256": "ec2024947b20f5307befa9283553d17ee884ea62f5b7996a49f908b4a2f6ab82"
+    }
+  ],
+  "invariants": [
+    "Native paint with edge decontamination",
+    "No generated lip/lid strokes",
+    "Persistent triangle + barycentric bindings",
+    "Shared native/particle deformation",
+    "Native alpha-matte occlusion"
+  ],
+  "reviewAssets": {
+    "clean-base.png": "79b688a5de5fdc6054618616b90a2ce484d0c6197d23cd9c0bf506e5e53ede94",
+    "art-atlas.png": "89812d306ed5c7824514142e0291a8fbcc13504cd98df4f931022ccd3c8904dc"
+  }
+}
